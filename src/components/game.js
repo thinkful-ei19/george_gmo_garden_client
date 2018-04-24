@@ -13,8 +13,9 @@ class Game extends React.Component {
         }
     }
     
-    scoreUpdate(event){
-        this.setState({points:event.target.value})
+    scoreUpdate(num){
+        this.setState({points:Number(this.state.points) + num})
+        console.log(this.state.points);
     }
 
     render() {
@@ -22,9 +23,9 @@ class Game extends React.Component {
             <div>
                 <div className="container">
                     <ScoreBoard points={this.state.points}/>
-                    <div className="weeds" id="weed1" value="1" onClick={()=>console.log('weed1 is Working')}></div>
-                    <div className="weeds" id="weed2" value="1" onClick={()=>console.log('Weed2 is Working')}></div>
-                    <div className="weeds" id="weed3" value="1" onClick={()=>console.log('Weed3 is Working')}></div>
+                    <div className="weeds" id="weed1" onClick={()=>this.scoreUpdate(4)}></div>
+                    <div className="weeds" id="weed2" onClick={()=>this.scoreUpdate(10)}></div>
+                    <div className="weeds" id="weed3" onClick={()=>this.scoreUpdate(2)}></div>
                 </div>
             </div>   
         );
