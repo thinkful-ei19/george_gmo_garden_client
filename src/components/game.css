@@ -1,0 +1,42 @@
+body {
+    background-color: aqua;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.weeds {
+    background-color: green;
+    border-radius: 100px 100px 0px 0px;
+    height: 100%;
+    width: 10%;
+    position: absolute;
+    top: 100%;
+}
+
+#weed1 {
+    left:10%;
+}
+
+#weed2 {
+    left:45%;
+}
+
+#weed3 {
+    left:80%;
+}
+
+.score {
+    font-size: 5rem;
+    position: absolute;
+    right: 5%;
+    z-index: 2;
+}    
+
+.weeds-up {
+    animation-name: grow-top ;
+    animation-duration: 5s;
+}
+
+@keyframes  grow-top {
+    from {height:0%;}
+    to {height:100%;}
+}
