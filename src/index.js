@@ -1,9 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+
+// Components
 import Game from './components/game';
-// import Leaderboard from './components/leaderboard';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Game />, document.getElementById('root'));
+const createStoreWithMiddleware = applyMiddleware()(createStore)
+
+
+ReactDOM.render(
+    <Provider store={createStoreWithMiddleware()}>
+        <Game />
+    </Provider>
+    , document.getElementById('root'));
 registerServiceWorker();
