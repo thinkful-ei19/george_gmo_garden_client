@@ -16,7 +16,7 @@ export default function playersReducer(state = initialState, action){
             return Object.assign({},state);
         case 'CHANGE_PLAYER_SCORE':
             return Object.assign({},state,{
-                score: action.score
+                score: Number(action.score + state.score) 
             });
         default:
             return state;

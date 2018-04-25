@@ -28,6 +28,7 @@ class Game extends React.Component {
 
     scoreUpdate(num){
         this.props.dispatch(actions.changePlayerScore(num));
+        console.log(this.props);
     }
     /* 
     scoreUpdate(num){
@@ -53,7 +54,7 @@ class Game extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    score: state.score
+    score: state.players.score
 })
 
 export default connect(mapStateToProps)(Game);
