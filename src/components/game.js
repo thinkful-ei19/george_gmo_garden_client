@@ -1,17 +1,23 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import * as actions from './actions';
+
 import './game.css';
 
 // Component
 import ScoreBoard from './score-board'
 
 class Game extends React.Component {
-    constructor(props){
-        super(props);
-
-        this.state = {
-            points: 0
-        }
+    componentWillMount(){
+        this.props.players()
     }
+    // constructor(props){
+    //     super(props);
+
+    //     this.state = {
+    //         points: 0
+    //     }
+    // }
     
     scoreUpdate(num){
         this.setState({points:Number(this.state.points) + num})
@@ -33,4 +39,11 @@ class Game extends React.Component {
 
 }
 
-export default Game;
+function mapStateToProps(state){
+    console.log(state);
+    return {
+        players:state.players
+    }
+}
+
+export default connect(mapStateToProps, actions)(Game);
