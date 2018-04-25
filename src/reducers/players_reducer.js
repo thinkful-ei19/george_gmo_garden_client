@@ -1,4 +1,3 @@
-
 // const data = {
 //     type:'PLAYERS',
 //     payload:[
@@ -6,11 +5,19 @@
 //     ]
 // }
 
-export default function(state = null, action){
+const initialState = {
+    score:0
+};
+
+export default function playersReducer(state = initialState, action){
 
     switch(action.type){
-        case 'PLAYERS':
-            return action.playload;
+        case 'GET_PLAYER_SCORE':
+            return Object.assign({},state);
+        case 'CHANGE_PLAYER_SCORE':
+            return Object.assign({},state,{
+                score: action.score
+            });
         default:
             return state;
     }
