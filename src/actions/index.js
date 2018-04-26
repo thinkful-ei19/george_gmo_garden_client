@@ -1,16 +1,5 @@
 
 
-
-// export const PLAYERS = 'PLAYERS';
-// export const players = () => {
-//     return {
-//         type:'PLAYERS',
-//         payload:[
-//             {id:1,name:'George',totalscore:(100000000)}
-//         ]
-//     }
-// };
-
 export const fetchPlayers = () => dispatch => {
     fetch('${API_BASE_URL}/game/players').then(res => {
         if (!res.ok) {
@@ -18,6 +7,7 @@ export const fetchPlayers = () => dispatch => {
         }
         return res.json();
     }).then(player => {
+        console.log('DB is working!', player);
         dispatch(fetchPlayersSuccess(player));
     }).catch(err => {
         dispatch(fetchPlayerError(err));
