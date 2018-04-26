@@ -41,6 +41,7 @@ class Game extends React.Component {
         console.log(this.props);
         return (
             <div>
+                {/* {playersArray} */}
                 <div className="container">
                     <ScoreBoard score={this.props.score}/>
                     <div className="weeds" id="weed1" onClick={()=>this.scoreUpdate(4)}></div>

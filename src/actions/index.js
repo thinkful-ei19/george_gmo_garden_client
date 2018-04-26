@@ -1,7 +1,21 @@
+import { API_BASE_URL } from '../config';
 
+export const fetchPlayerError = (res) => dispatch => {
+    if (!res.ok) {
+        throw Error(res.statusText);
+    }
+    return res;
+};
+
+export const fetchPlayersSuccess = (res) => dispatch => {
+    if (res.ok) {
+        console.log('Data OK to go!',res.ok);
+        return res;
+    }
+};
 
 export const fetchPlayers = () => dispatch => {
-    fetch('${API_BASE_URL}/game/players').then(res => {
+    fetch(`${API_BASE_URL}/game/players`).then(res => {
         if (!res.ok) {
             return Promise.reject(res.statusText);
         }
