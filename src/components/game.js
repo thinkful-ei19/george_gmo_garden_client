@@ -26,6 +26,10 @@ class Game extends React.Component {
         console.log('componentDidMount', this.props );
     }
 
+    componentDidUpdate(){
+        console.log(this.props);
+    }
+
     scoreUpdate(num){
         this.props.dispatch(actions.changePlayerScore(num));
         console.log(this.props);
@@ -41,7 +45,7 @@ class Game extends React.Component {
         console.log(this.props);
         return (
             <div>
-                {/* {playersArray} */}
+                <button onClick={()=>this.props.dispatch(actions.fetchPlayers())}>test button</button>
                 <div className="container">
                     <ScoreBoard score={this.props.score}/>
                     <div className="weeds" id="weed1" onClick={()=>this.scoreUpdate(4)}></div>
@@ -55,7 +59,8 @@ class Game extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    score: state.players.score
+    score: state.players.score,
+    players: state.players
 })
 
 export default connect(mapStateToProps)(Game);

@@ -7,6 +7,7 @@ import Store from './store';
 
 // Components
 import Game from './components/game';
+// import Leaderboard from './components/leaderboard';
 import registerServiceWorker from './registerServiceWorker';
 
 // const createStoreWithMiddleware = applyMiddleware()(createStore)
@@ -15,6 +16,7 @@ import registerServiceWorker from './registerServiceWorker';
 ReactDOM.render(
     <Provider store={Store}>
         <Game />
+        {/* <Leaderboard /> */}
     </Provider>
     , document.getElementById('root'));
 registerServiceWorker();

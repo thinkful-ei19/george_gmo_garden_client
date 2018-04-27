@@ -3,13 +3,20 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.container {
+    height: 400px;
+    width: 400px;
+    margin: 10px;
+    display: flex; /* or inline-flex */
+    flex-direction: row ;
+    justify-content: space-evenly;
+}
+
 .weeds {
     background-color: green;
     border-radius: 100px 100px 0px 0px;
-    height: 100%;
-    width: 10%;
-    position: absolute;
-    top: 100%;
+    height: 40px;
+    width: 20px;
 }
 
 #weed1 {
@@ -25,8 +32,8 @@ body {
 }
 
 .score {
-    font-size: 5rem;
-    position: absolute;
+    font-size: 1rem;
+    position: static;
     right: 5%;
     z-index: 2;
 }    

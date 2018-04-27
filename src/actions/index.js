@@ -1,30 +1,30 @@
 import { API_BASE_URL } from '../config';
 
-export const fetchPlayerError = (res) => dispatch => {
-    if (!res.ok) {
-        throw Error(res.statusText);
-    }
-    return res;
-};
+// export const fetchPlayerError = (res) => dispatch => {
+//     if (!res.ok) {
+//         throw Error(res.statusText);
+//     }
+//     return res;
+// };
 
-export const fetchPlayersSuccess = (res) => dispatch => {
-    if (res.ok) {
-        console.log('Data OK to go!',res.ok);
-        return res;
-    }
-};
+export const FETCH_PLAYER_SUCCESS = 'FETCH_PLAYER_SUCCESS'; 
+export const fetchPlayerSuccess = players => ({ 
+    type: FETCH_PLAYER_SUCCESS,
+    players
+});
 
 export const fetchPlayers = () => dispatch => {
+    console.log('Calling fetch queries');
     fetch(`${API_BASE_URL}/game/players`).then(res => {
         if (!res.ok) {
             return Promise.reject(res.statusText);
         }
         return res.json();
-    }).then(player => {
-        console.log('DB is working!', player);
-        dispatch(fetchPlayersSuccess(player));
+    }).then(players => {
+        console.log('DB is working!', players);
+        dispatch(fetchPlayerSuccess(players));
     }).catch(err => {
-        dispatch(fetchPlayerError(err));
+        dispatch(console.log(err));
     });    
 };
 
