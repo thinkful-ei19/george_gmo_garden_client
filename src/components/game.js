@@ -8,6 +8,7 @@ import '../animation.css';
 /* ====== Import Component ====== */
 
 import ScoreBoard from './score-board';
+import Timer30 from './timer-30s.js';
 
 /* ====== Game Component  ====== */
 
@@ -61,9 +62,10 @@ class Game extends React.Component {
 
         return (
             <div>
-                <button onClick={()=>this.props.dispatch(actions.fetchPlayers())}>test button</button>
-                <div className="container">
                 <ScoreBoard score={this.props.score}/>
+                <Timer30 />
+                {/* <button onClick={()=>this.props.dispatch(actions.fetchPlayers())}>test button</button> */}
+                <div className="container">
                     <div className="holes hole1">
                         <div className={classes} id="weed1" onClick={()=> {this.scoreUpdate(4)
                                                                             this.setState({isSlidingUp: !this.state.isSlidingUp})}}></div>
