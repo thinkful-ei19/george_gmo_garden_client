@@ -5,42 +5,37 @@ body {
 
 .container {
     height: 400px;
-    width: 400px;
-    margin: 10px;
+    width: 100%;
+    overflow: hidden;
+    margin: 0px auto;
+    padding: 1%;
     display: flex; /* or inline-flex */
-    flex-direction: row ;
+    flex-direction: row;
     justify-content: space-evenly;
 }
 
 .weeds {
     background-color: green;
-    border-radius: 100px 100px 0px 0px;
-    height: 40px;
+    border-radius: 100px 100px 100px 100px;
+    height: 80%;
     width: 20px;
+    transition:all 0.4s!important;
+    align-self: flex-end; 
 }
 
-#weed1 {
-    left:10%;
+.holes {
+    height: 100%;
+    width: 20px;
+    padding: 0px auto;
+    align-self: flex-end; 
 }
 
-#weed2 {
-    left:45%;
-}
-
-#weed3 {
-    left:80%;
-}
 
 .score {
     font-size: 1rem;
     position: static;
     right: 5%;
     z-index: 2;
-}    
-
-.weeds-up {
-    animation-name: grow-top ;
-    animation-duration: 5s;
 }
 
 @keyframes  grow-top {

@@ -3,27 +3,32 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 
 import './game.css';
+import '../animation.css';
 
-// Component
+/* ====== Import Component ====== */
+
 import ScoreBoard from './score-board';
+
+/* ====== Game Component  ====== */
 
 class Game extends React.Component {
     // componentWillMount(){
     //     this.props.players()
     // }
-    /*
+    
     constructor(props){
         super(props);
 
-        // this.state = {
-        //     points: 0
-        // }
+        this.state = {
+            isSlidingUp1:[false,false,false] 
+        };
     }
-    */
+    
 
     componentDidMount(){
         this.props.dispatch(actions.getPlayerScore());
         console.log('componentDidMount', this.props );
+        this.setState({isSlidingUp: true})
     }
 
     componentDidUpdate(){
@@ -34,6 +39,7 @@ class Game extends React.Component {
         this.props.dispatch(actions.changePlayerScore(num));
         console.log(this.props);
     }
+    
     /* 
     scoreUpdate(num){
         this.setState({points:Number(this.state.points) + num})
@@ -42,15 +48,34 @@ class Game extends React.Component {
     */
 
     render() {
-        console.log(this.props);
+        let classes;
+        if (this.state.isSlidingUp) {
+            classes = "weeds slideUp";
+        }
+        else {
+            classes = "weeds";
+        }
+        // let classes1;
+
+
+
         return (
             <div>
                 <button onClick={()=>this.props.dispatch(actions.fetchPlayers())}>test button</button>
                 <div className="container">
-                    <ScoreBoard score={this.props.score}/>
-                    <div className="weeds" id="weed1" onClick={()=>this.scoreUpdate(4)}></div>
-                    <div className="weeds" id="weed2" onClick={()=>this.scoreUpdate(10)}></div>
-                    <div className="weeds" id="weed3" onClick={()=>this.scoreUpdate(2)}></div>
+                <ScoreBoard score={this.props.score}/>
+                    <div className="holes hole1">
+                        <div className={classes} id="weed1" onClick={()=> {this.scoreUpdate(4)
+                                                                            this.setState({isSlidingUp: !this.state.isSlidingUp})}}></div>
+                    </div>
+                    <div className="holes hole2">
+                        <div className={classes} id="weed2" onClick={()=> {this.scoreUpdate(10)
+                                                                            this.setState({isSlidingUp: !this.state.isSlidingUp})}}></div>
+                    </div>
+                    <div className="holes hole3">
+                        <div className={classes} id="weed3" onClick={()=> {this.scoreUpdate(2)
+                                                                            this.setState({isSlidingUp: !this.state.isSlidingUp})}}></div>
+                    </div>
                 </div>
             </div>   
         );
