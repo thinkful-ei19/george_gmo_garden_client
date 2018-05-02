@@ -23,7 +23,7 @@ class Game extends React.Component {
         super(props);
 
         this.state = {
-            isSlidingUp1:[false,false,false] 
+            weeds:[] 
         };
     }
     
@@ -32,6 +32,8 @@ class Game extends React.Component {
         this.props.dispatch(actions.getPlayerScore());
         console.log('componentDidMount', this.props );
         this.setState({isSlidingUp: true})
+        this.lister()
+
     }
 
     componentDidUpdate(){
@@ -43,23 +45,37 @@ class Game extends React.Component {
         console.log(this.props);
     }
     
-    /* 
-    scoreUpdate(num){
-        this.setState({points:Number(this.state.points) + num})
-        console.log(this.state.points);
+    score(){
+        this.lister()
     }
-    */
 
+    lister() {
+    const divie = <div className= "weeds bounceOut" />;
+    const divClick = <div className="weeds bounceIn" onClick={()=>this.score()} />
+    const weeds = [];
+    const random = Math.floor(Math.random() * 3) + 1;
+    for (let i = 0; i < 3; i++) {
+        // eslint-disable-next-line
+        if (i == random - 1) {
+        weeds.push(divClick)
+        } else {
+        weeds.push(divie)
+        }
+    }
+    this.setState({weeds});
+    }
+    
     render() {
-        let classes;
-        if (this.state.isSlidingUp) {
-            classes = "weeds slideUp";
-        }
-        else {
-            classes = "weeds";
-        }
-        // let classes1;
+       
 
+        // let classes;
+        // if (this.state.isSlidingUp) {
+        //     classes = "weeds bounceIn";
+        // }
+        // else {
+        //     classes = "weeds bounceOut";
+        // }
+        // let classes2;
 
 
         return (
@@ -69,7 +85,8 @@ class Game extends React.Component {
                 <Timer60 />
                 {/* <button onClick={()=>this.props.dispatch(actions.fetchPlayers())}>test button</button> */}
                 <div className="container">
-                    <div className="holes hole1">
+                    {this.state.weeds}
+                    {/* <div className="holes hole1">
                         <div className={classes} id="weed1" onClick={()=> {this.scoreUpdate(4)
                                                                             this.setState({isSlidingUp: !this.state.isSlidingUp})}}></div>
                     </div>
@@ -80,7 +97,7 @@ class Game extends React.Component {
                     <div className="holes hole3">
                         <div className={classes} id="weed3" onClick={()=> {this.scoreUpdate(2)
                                                                             this.setState({isSlidingUp: !this.state.isSlidingUp})}}></div>
-                    </div>
+                    </div> */}
                 </div>
             </div>   
         );

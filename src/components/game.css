@@ -19,6 +19,7 @@ body {
     border-radius: 100px 100px 100px 100px;
     height: 80%;
     width: 20px;
+    /* display: none; */
     transition:all 0.4s!important;
     align-self: flex-end; 
 }
@@ -26,6 +27,7 @@ body {
 .holes {
     height: 100%;
     width: 20px;
+    overflow: hidden;
     padding: 0px auto;
     align-self: flex-end; 
 }
@@ -36,9 +38,4 @@ body {
     position: static;
     right: 5%;
     z-index: 2;
-}
-
-@keyframes  grow-top {
-    from {height:0%;}
-    to {height:100%;}
 }

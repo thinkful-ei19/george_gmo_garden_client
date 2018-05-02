@@ -1,6 +1,8 @@
 import React from 'react';
 import Modal from 'react-responsive-modal';
 
+
+
 export default class Login extends React.Component {
   state = {
     open: false,
@@ -14,21 +16,25 @@ export default class Login extends React.Component {
     this.setState({ open: false });
   };
 
+  
+
   render() {
+    const inputStyle = {
+      display: 'inline-block',
+      width: '100%',
+      padding: '1%'
+    };
     const { open } = this.state;
-    const lorem = (
-      <p>
-        Mauris ac arcu sit amet dui interdum bibendum a sed diam. Praesent
-        rhoncus congue ipsum elementum lobortis. Ut ligula purus, ultrices id
-        condimentum quis, tincidunt quis purus. Proin quis enim metus. Nunc
-        feugiat odio at eros porta, ut rhoncus lorem tristique. Nunc et ipsum eu
-        ex vulputate consectetur vel eu nisi. Donec ultricies rutrum lectus, sit
-        ame feugiat est semper vitae. Proin varius imperdiet consequat. Proin eu
-        metus nisi. In hac habitasse platea dictumst. Vestibulum ac ultrices
-        risus. Pellentesque arcu sapien, aliquet sed orci sit amet, pulvinar
-        interdum velit. Nunc a rhoncus ipsum, maximus fermentum dolor. Praesent
-        aliquet justo vitae rutrum volutpat. Ut quis pulvinar est.
-      </p>
+    const Content = (
+      <div className="container">
+      <label for="uname"><strong>Username</strong></label>
+      <input style={inputStyle} type="text" placeholder="Enter Username" name="uname" required />
+  
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required />
+          
+      <button type="submit">Login</button>
+      </div>
     );
     return (
       <div className="example">
@@ -37,11 +43,11 @@ export default class Login extends React.Component {
           Start Game
         </button>{' '}
         
-          This is modal to login and start game.
+        This is modal to login and start game.
        
         <Modal open={open} onClose={this.onCloseModal}>
           <h2>Big modal</h2>
-          {lorem}
+          {Content}
         </Modal>
       </div>
     );
