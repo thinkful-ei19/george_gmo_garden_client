@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import Login from './login-dialog';
+
 
 import './game.css';
 import '../animation.css';
@@ -8,7 +10,7 @@ import '../animation.css';
 /* ====== Import Component ====== */
 
 import ScoreBoard from './score-board';
-import Timer30 from './timer-30s.js';
+import Timer60 from './timer-60.js';
 
 /* ====== Game Component  ====== */
 
@@ -62,8 +64,9 @@ class Game extends React.Component {
 
         return (
             <div>
+                <Login />
                 <ScoreBoard score={this.props.score}/>
-                <Timer30 />
+                <Timer60 />
                 {/* <button onClick={()=>this.props.dispatch(actions.fetchPlayers())}>test button</button> */}
                 <div className="container">
                     <div className="holes hole1">

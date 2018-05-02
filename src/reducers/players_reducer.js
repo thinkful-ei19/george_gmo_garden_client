@@ -1,10 +1,3 @@
-// const data = {
-//     type:'PLAYERS',
-//     payload:[
-//         {id:"1", name:"George", totalscore }
-//     ]
-// }
-
 const initialState = {
     score:0
 };

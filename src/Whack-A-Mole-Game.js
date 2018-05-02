@@ -21,7 +21,6 @@ index of the hole and make a Mole a mole show up.
 function randomHole(holes) {
   const idx = Math.floor(Math.random() * holes.length);
   const hole = holes[idx];
-  console.log(hole);
 
   if(hole === lastHole) {
     randomHole(holes);
