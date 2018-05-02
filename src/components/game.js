@@ -31,9 +31,8 @@ class Game extends React.Component {
     componentDidMount(){
         this.props.dispatch(actions.getPlayerScore());
         console.log('componentDidMount', this.props );
-        this.setState({isSlidingUp: true})
-        this.lister()
-
+        this.setState({isSlidingUp: true});
+        setInterval(this.lister(), 3000);
     }
 
     componentDidUpdate(){
@@ -46,7 +45,7 @@ class Game extends React.Component {
     }
     
     score(){
-        this.lister()
+        this.lister();
     }
 
     lister() {
