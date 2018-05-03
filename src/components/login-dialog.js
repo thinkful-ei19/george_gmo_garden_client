@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Modal from 'react-responsive-modal';
 
 
@@ -27,26 +28,27 @@ export default class Login extends React.Component {
     const { open } = this.state;
     const Content = (
       <div>
-      <label for="uname"><strong>Player Name</strong></label>
-      <input style={inputStyle} type="text" placeholder="Enter Username" name="uname" required />
+      <label for="pname"><strong>Player Name</strong></label>
+      <input style={inputStyle} type="text" placeholder="Enter Player Name" name="pname" required />
   
       <label style={inputStyle} for="psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required />
-          
+          <br/>
       <button style={inputStyle} type="submit">Start Game</button>
       </div>
     );
     return (
       <div className="example">
-        <h4>Big modal</h4>
+        <Link to="/">
         <button className="btn btn-action" onClick={this.onOpenModal}>
           Start Game
-        </button>{' '}
+        </button>
+        </Link>{' '}
         
         This is modal to login and start game.
        
         <Modal open={open} onClose={this.onCloseModal}>
-          <h2>Big modal</h2>
+          <h2>Welcome to Whack a Weeds</h2>
           {Content}
         </Modal>
       </div>
