@@ -1,11 +1,11 @@
 import React from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Modal from 'react-responsive-modal';
 
 
 
-export default class Login extends React.Component {
+export default class GameOver extends React.Component {
   state = {
     open: false,
   };
@@ -29,29 +29,23 @@ export default class Login extends React.Component {
     const { open } = this.state;
     const Content = (
       <div>
-      <label htmlFor="pname"><strong>Player Name</strong></label>
-      <input style={inputStyle} type="text" placeholder="Enter Player Name" name="pname" required />
-  
-      <label style={inputStyle} htmlFor="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required />
-          <br/>
-             
-      <button style={inputStyle} type="button"><Link to="/game">Start Game</Link></button>
-      
+      <h1>See if you made it to the leader board!</h1>
+      <button style={inputStyle} type="submit">Game Over</button>
       </div>
     );
     return (
       <Route>
       <div className="example">
-        
+        <Link to="/leaderboard">
         <button className="btn btn-action" onClick={this.onOpenModal}>
-          Start Game
-        </button>{' '}
+          End Game
+        </button>
+        </Link>{' '}
         
-        This is modal to login and start game.
+        This is modal to set game over.
        
         <Modal open={open} onClose={this.onCloseModal}>
-          <h2>Welcome to Whack a Weeds</h2>
+          <h2>All Done!</h2>
           {Content}
         </Modal>
       </div>

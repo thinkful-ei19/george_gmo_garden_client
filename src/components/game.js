@@ -3,7 +3,7 @@
     import {BrowserRouter as Router, Route} from 'react-router-dom';
     import * as actions from '../actions';
     import Login from './login-dialog';
-    import Leaderboard from './leaderboard';
+    import GameOver from './game-over';
 
 
     import './game.css';
@@ -68,13 +68,11 @@
         
         render() {
             return (
-                <Router >
                 <div>
-                    <Login />
                     <ScoreBoard score={this.props.score}/>
                     <Timer60 />
-                    <Route exact path="/leaderboard" component={Leaderboard} />
-                    <button onClick={()=>this.props.dispatch(actions.fetchPlayers())}>test button</button>
+                    
+                    {/* <button onClick={()=>this.props.dispatch(actions.fetchPlayers())}>test button</button> */}
                     <div className="container">
                         {this.state.weeds}
                         {/* <div className="holes hole1">
@@ -90,8 +88,7 @@
                                                                                 this.setState({isSlidingUp: !this.state.isSlidingUp})}}></div>
                         </div> */}
                     </div>
-                </div>
-                </Router >   
+                </div>   
             );
         }
 

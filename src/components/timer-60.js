@@ -18,7 +18,7 @@ class Timer60 extends React.Component {
         let counter = this.state.timer;
         if (counter === 60) {
             clearInterval(this.state.intervalID);
-            // END GAME HERE
+            window.location.replace("/game-over");
         } else {
             this.setState({
                 timer: counter+1

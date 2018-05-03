@@ -15,19 +15,19 @@ class LeaderTitle extends React.Component {
 class Ranking extends React.Component {
     render() {
         return (
-            <div class="divTable">
-            <div class="divTableBody">
-            <div class="divTableRow">
-            <div class="divTableCell">NAME</div>
-            <div class="divTableCell">DATE</div>
-            <div class="divTableCell">SCORE</div>
-            <div class="divTableCell">RANK</div>
+            <div className="divTable">
+            <div className="divTableBody">
+            <div className="divTableRow">
+            <div className="divTableCell">NAME</div>
+            <div className="divTableCell">DATE</div>
+            <div className="divTableCell">SCORE</div>
+            <div className="divTableCell">RANK</div>
             </div>
-            <div class="divTableRow">
-            <div class="divTableCell">George Colon</div>
-            <div class="divTableCell">04/24/2018</div>
-            <div class="divTableCell">100,000,000</div>
-            <div class="divTableCell">1</div>
+            <div className="divTableRow">
+            <div className="divTableCell">George Colon</div>
+            <div className="divTableCell">04/24/2018</div>
+            <div className="divTableCell">100,000,000</div>
+            <div className="divTableCell">1</div>
             </div>
             </div>
             </div>
