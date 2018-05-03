@@ -23,7 +23,7 @@ class Game extends React.Component {
         super(props);
 
         this.state = {
-            weeds:[] 
+            weeds:[],
         };
     }
     
@@ -32,7 +32,8 @@ class Game extends React.Component {
         this.props.dispatch(actions.getPlayerScore());
         console.log('componentDidMount', this.props );
         this.setState({isSlidingUp: true});
-        setInterval(this.lister(), 3000);
+        this.lister();
+        setInterval(() => this.lister(), 2000)      
     }
 
     componentDidUpdate(){
@@ -47,6 +48,7 @@ class Game extends React.Component {
     score(){
         this.lister();
     }
+    
 
     lister() {
     const divie = <div className= "weeds bounceOut" />;

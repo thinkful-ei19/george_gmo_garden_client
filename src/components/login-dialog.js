@@ -26,14 +26,14 @@ export default class Login extends React.Component {
     };
     const { open } = this.state;
     const Content = (
-      <div className="container">
-      <label for="uname"><strong>Username</strong></label>
+      <div>
+      <label for="uname"><strong>Player Name</strong></label>
       <input style={inputStyle} type="text" placeholder="Enter Username" name="uname" required />
   
-      <label for="psw"><b>Password</b></label>
+      <label style={inputStyle} for="psw"><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required />
           
-      <button type="submit">Login</button>
+      <button style={inputStyle} type="submit">Start Game</button>
       </div>
     );
     return (
