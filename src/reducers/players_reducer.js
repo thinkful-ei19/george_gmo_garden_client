@@ -11,6 +11,11 @@ export default function playersReducer(state = initialState, action){
             return Object.assign({},state,{
                 score: Number(action.score + state.score)
             });
+            case 'POST_PLAYER':
+            console.log(action)
+            return Object.assign({},state,{
+                name:action.payload.name
+            });
         case 'FETCH_PLAYER_SUCCESS':
             return Object.assign({},state,{
                 players: action.players

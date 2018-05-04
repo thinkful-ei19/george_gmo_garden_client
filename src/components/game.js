@@ -51,16 +51,14 @@
         
 
         lister() {
-        const divie = <div className= "weeds bounceOut" />;
-        const divClick = <div className="weeds bounceIn" onClick={()=>this.score()} />
         const weeds = [];
         const random = Math.floor(Math.random() * 3) + 1;
         for (let i = 0; i < 3; i++) {
             // eslint-disable-next-line
             if (i == random - 1) {
-            weeds.push(divClick)
+            weeds.push(<div key={i} className="weeds bounceIn" onClick={()=>this.score()} />)
             } else {
-            weeds.push(divie)
+            weeds.push(<div key={i} className= "weeds bounceOut" />)
             }
         }
         this.setState({weeds});

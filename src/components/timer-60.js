@@ -1,5 +1,6 @@
 import React from 'react';
 import './game.css';
+import { Redirect } from 'react-router-dom';
 
 
 class Timer60 extends React.Component {
@@ -19,6 +20,7 @@ class Timer60 extends React.Component {
         if (counter === 60) {
             clearInterval(this.state.intervalID);
             window.location.replace("/game-over");
+            // <Redirect to="/game-over" /> Work on this later!
         } else {
             this.setState({
                 timer: counter+1

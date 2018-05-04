@@ -1,13 +1,26 @@
 import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Modal from 'react-responsive-modal';
+import * as actions from '../actions';
 
 
 
-export default class Login extends React.Component {
-  state = {
-    open: false,
+
+
+export class Login extends React.Component {
+  constructor() {
+    super();
+      this.state = {
+      open: false,
+    }
+    this.saveName = this.saveName.bind(this)
+  } 
+  
+
+  componentDidMount(){
+    // this.props.dispatch(actions.postPlayer());
   };
 
   onOpenModal = () => {
@@ -18,7 +31,10 @@ export default class Login extends React.Component {
     this.setState({ open: false });
   };
 
-  
+  saveName = (e) => {
+    e.preventDefault()
+    actions.postPlayer(document.getElementById('pname').value, this.props.dispatch)
+  } 
 
   render() {
     const inputStyle = {
@@ -29,19 +45,16 @@ export default class Login extends React.Component {
     const { open } = this.state;
     const Content = (
       <div>
+        <form onSubmit={(event)=> this.saveName(event)}>
       <label htmlFor="pname"><strong>Player Name</strong></label>
-      <input style={inputStyle} type="text" placeholder="Enter Player Name" name="pname" required />
-  
-      <label style={inputStyle} htmlFor="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required />
+      <input id={'pname'} style={inputStyle} type="text" placeholder="Enter Player Name" name="pname" required />
           <br/>
              
-      <button style={inputStyle} type="button"><Link to="/game">Start Game</Link></button>
-      
+        <button style={inputStyle} type="submit">Start Game</button>
+      </form>
       </div>
     );
     return (
-      <Route>
       <div className="example">
         
         <button className="btn btn-action" onClick={this.onOpenModal}>
@@ -55,7 +68,12 @@ export default class Login extends React.Component {
           {Content}
         </Modal>
       </div>
-      </Route>
     );
   }
 }
+
+const mapStateToProps = (state,compState) => ({
+
+})
+
+export default connect (mapStateToProps)(Login);

@@ -31,6 +31,7 @@ export const fetchPlayers = () => dispatch => {
 export const CHANGE_PLAYER_SCORE = 'CHANGE_PLAYER_SCORE'; 
 export const changePlayerScore = score => ({ 
     type: CHANGE_PLAYER_SCORE,
+    method: 'POST',
     score
 });
 
@@ -38,3 +39,15 @@ export const GET_PLAYER_SCORE = 'GET_PLAYER_SCORE';
 export const getPlayerScore = () => ({ 
     type: GET_PLAYER_SCORE
 });
+
+export const POST_PLAYER = 'POST_PLAYER'; 
+export const postPlayer = (name, dispatch) => {console.log(name);
+    fetch(`${API_BASE_URL}/game/players`, {
+        method:'POST',
+        headers: {'Content-Type':'application/json'},
+        body:JSON.stringify({name})
+    }).then(obj => dispatch({type: POST_PLAYER, payload:obj}))
+    // return {
+    // type: POST_PLAYER,
+    // name: 'bob'
+};

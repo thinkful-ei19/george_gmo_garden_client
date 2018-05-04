@@ -30,17 +30,16 @@ export default class GameOver extends React.Component {
     const Content = (
       <div>
       <h1>See if you made it to the leader board!</h1>
-      <button style={inputStyle} type="submit">Game Over</button>
+      <Link to="/leaderboard"><button style={inputStyle} type="submit">Game Over</button></Link>
       </div>
     );
     return (
       <Route>
       <div className="example">
-        <Link to="/leaderboard">
+        
         <button className="btn btn-action" onClick={this.onOpenModal}>
           End Game
-        </button>
-        </Link>{' '}
+        </button>{' '}
         
         This is modal to set game over.
        
