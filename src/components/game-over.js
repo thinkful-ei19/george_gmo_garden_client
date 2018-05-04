@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Modal from 'react-responsive-modal';
 
 
@@ -34,7 +33,6 @@ export default class GameOver extends React.Component {
       </div>
     );
     return (
-      <Route>
       <div className="example">
         
         <button className="btn btn-action" onClick={this.onOpenModal}>
@@ -48,7 +46,6 @@ export default class GameOver extends React.Component {
           {Content}
         </Modal>
       </div>
-      </Route>
     );
   }
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import './game.css';
-import { Redirect } from 'react-router-dom';
 
 
 class Timer60 extends React.Component {

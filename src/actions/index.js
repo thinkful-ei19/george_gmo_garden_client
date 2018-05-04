@@ -1,5 +1,4 @@
 import { API_BASE_URL } from '../config';
-
 // export const fetchPlayerError = (res) => dispatch => {
 //     if (!res.ok) {
 //         throw Error(res.statusText);
@@ -45,7 +44,7 @@ export const postPlayer = (name, dispatch) => {console.log(name);
     fetch(`${API_BASE_URL}/game/players`, {
         method:'POST',
         headers: {'Content-Type':'application/json'},
-        body:JSON.stringify({name})
+        body:JSON.stringify({name}) 
     }).then(obj => dispatch({type: POST_PLAYER, payload:obj}))
     // return {
     // type: POST_PLAYER,

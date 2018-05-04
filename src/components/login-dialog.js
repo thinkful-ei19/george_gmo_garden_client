@@ -1,5 +1,4 @@
 import React from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Modal from 'react-responsive-modal';
@@ -34,6 +33,7 @@ export class Login extends React.Component {
   saveName = (e) => {
     e.preventDefault()
     actions.postPlayer(document.getElementById('pname').value, this.props.dispatch)
+    window.location = '/game'
   } 
 
   render() {

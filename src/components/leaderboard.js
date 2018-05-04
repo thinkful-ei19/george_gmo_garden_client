@@ -1,7 +1,22 @@
 import React from 'react';
 import './leaderboard.css';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 class LeaderTitle extends React.Component {
+    constructor(props){
+        super(props);
+
+        this.state = {
+            weeds:[],
+        };
+    }
+    
+    componentDidMount(){
+        this.props.dispatch(actions.getPlayerScore());
+            console.log('componentDidMount', this.props );
+    }
+
     render() {
         return (
             <div>
@@ -44,6 +59,12 @@ class Leaderboard extends React.Component {
             </div>
         );
     }
-}
+}   
 
-export default Leaderboard;
+// export default Leaderboard;
+const mapStateToProps = (state) => ({
+    score: state.players.score,
+    players: state.players
+})
+
+export default connect(mapStateToProps)(Leaderboard);
