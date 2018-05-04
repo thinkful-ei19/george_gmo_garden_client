@@ -36,7 +36,7 @@ class Game extends React.Component {
     }
 
     scoreUpdate(num){
-        this.props.dispatch(actions.changePlayerScore(num));
+        actions.changePlayerScore(num, this.props.dispatch);
         console.log(this.props);
     }
     
@@ -61,11 +61,12 @@ class Game extends React.Component {
     }
     
     render() {
+        const name = localStorage.getItem('name');
         return (
             <div>
                 <ScoreBoard score={this.props.score}/>
-                <Timer60 />
-                {this.props.name}
+                <Timer60 dispatch={this.props.dispatch} score={this.props.score} />
+                {name}
                 {/* <button onClick={()=>this.props.dispatch(actions.fetchPlayers())}>test button</button> */}
                 <div className="container">
                     {this.state.weeds}

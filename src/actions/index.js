@@ -28,11 +28,15 @@ export const fetchPlayers = () => dispatch => {
 };
 
 export const CHANGE_PLAYER_SCORE = 'CHANGE_PLAYER_SCORE'; 
-export const changePlayerScore = score => ({ 
-    type: CHANGE_PLAYER_SCORE,
-    method: 'POST',
-    score
-});
+export const changePlayerScore = (score, dispatch) => {console.log(score);
+    dispatch({type:'CHANGE_PLAYER_SCORE', score})
+    const userID = localStorage.getItem('userID');
+    fetch(`${API_BASE_URL}/game/players/${userID}`, {
+        method:'PUT',
+        headers: {'Content-Type':'application/json'},
+        body:JSON.stringify({score}) 
+    }).then(obj => dispatch({type: POST_PLAYER, payload:obj}))
+};
 
 export const GET_PLAYER_SCORE = 'GET_PLAYER_SCORE'; 
 export const getPlayerScore = () => ({ 
@@ -45,7 +49,11 @@ export const postPlayer = (name, dispatch) => {console.log(name);
         method:'POST',
         headers: {'Content-Type':'application/json'},
         body:JSON.stringify({name}) 
-    }).then(obj => dispatch({type: POST_PLAYER, payload:obj}))
+    }).then(res => res.json())
+    .then(obj => { 
+        dispatch({type: POST_PLAYER, payload:obj})
+        localStorage.setItem('userID', obj.id)
+    })
     // return {
     // type: POST_PLAYER,
     // name: 'bob'

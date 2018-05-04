@@ -1,6 +1,6 @@
 import React from 'react';
 import './game.css';
-
+import * as actions from '../actions';
 
 class Timer60 extends React.Component {
     constructor(props) {
@@ -18,6 +18,8 @@ class Timer60 extends React.Component {
         let counter = this.state.timer;
         if (counter === 60) {
             clearInterval(this.state.intervalID);
+            localStorage.setItem('score', this.props.score);
+            actions.changePlayerScore(this.props.score, this.props.dispatch);
             window.location.replace("/game-over");
             // <Redirect to="/game-over" /> Work on this later!
         } else {

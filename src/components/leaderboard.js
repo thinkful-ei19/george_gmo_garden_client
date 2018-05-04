@@ -17,6 +17,8 @@ class LeaderTitle extends React.Component {
             console.log('componentDidMount', this.props );
     }
 
+   
+
     render() {
         return (
             <div>

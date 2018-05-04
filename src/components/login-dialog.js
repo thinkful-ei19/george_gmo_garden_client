@@ -4,10 +4,6 @@ import { connect } from 'react-redux';
 import Modal from 'react-responsive-modal';
 import * as actions from '../actions';
 
-
-
-
-
 export class Login extends React.Component {
   constructor() {
     super();
@@ -22,6 +18,8 @@ export class Login extends React.Component {
     // this.props.dispatch(actions.postPlayer());
   };
 
+
+
   onOpenModal = () => {
     this.setState({ open: true });
   };
@@ -33,8 +31,10 @@ export class Login extends React.Component {
   saveName = (e) => {
     e.preventDefault()
     actions.postPlayer(document.getElementById('pname').value, this.props.dispatch)
+    localStorage.setItem('name', document.getElementById('pname').value)
     window.location = '/game'
-  } 
+  }
+
 
   render() {
     const inputStyle = {
